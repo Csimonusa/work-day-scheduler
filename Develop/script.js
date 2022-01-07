@@ -1,9 +1,6 @@
-//i want the colors to change with the time
-//i want to save to local storage
-//alert message: "i just saved to local storage"
 var currentTime = new Date().getHours()
 
-$("#currentDay").text(moment().format("MMM Do YY")); 
+$("#currentDay").text(moment().format("MMM Do YY"))
 
 window.onload = function () {
     ppf()
@@ -74,3 +71,20 @@ function ppf() {
         $("#17pm").addClass("future")
     }
 }
+
+$(".saveBtn").on("click", function() {
+    var userInput = $(this).siblings(".col-lg-10").val()
+    var time = $(this).parent().attr("id")
+
+    localStorage.setItem(time, userInput)
+})
+
+$("#9am .col-lg-10").val(localStorage.getItem("9am"))
+$("#10am .col-lg-10").val(localStorage.getItem("10am"))
+$("#11am .col-lg-10").val(localStorage.getItem("11am"))
+$("#12pm .col-lg-10").val(localStorage.getItem("12pm"))
+$("#13pm .col-lg-10").val(localStorage.getItem("13pm"))
+$("#14pm .col-lg-10").val(localStorage.getItem("14pm"))
+$("#15pm .col-lg-10").val(localStorage.getItem("15pm"))
+$("#16pm .col-lg-10").val(localStorage.getItem("16pm"))
+$("#17pm .col-lg-10").val(localStorage.getItem("17pm"))
